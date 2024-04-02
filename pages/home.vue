@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 
 </script>
 
 <template>
-<nuxt-page/>
+  <main-layout/>
 </template>
 
 <style scoped lang="scss">

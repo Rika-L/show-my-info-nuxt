@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import {onMounted} from "vue";
+
 const timeLine = ref()
+onMounted(async ()=>{
+  const res = await $fetch('/api/timeLine',{
+    method:'GET',
+  })
+  timeLine.value = res.body
+})
 </script>
 
 <template>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+onBeforeMount(()=>{
+  useRouter().replace('/home')
+})
 </script>
 
 <template>

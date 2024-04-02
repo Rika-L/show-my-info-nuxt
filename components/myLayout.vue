@@ -9,7 +9,7 @@ const $router = useRouter()
   <div style="position: fixed;width: 100%">
     <el-container>
       <el-header class="header">
-        <div><span @click="$router.push('login')">Rika</span></div>
+        <div><span @click="$router.push('/login')">Rika</span></div>
         <div></div>
         <div><span @click="$router.push('/home')">首页</span><span @click="$router.push('/home/timeLine')">时间轴</span><span
             @click="$router.push('/home/about')">关于</span><span><img src="~/assets/img/download.svg"

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 let loginForm = ref({
-  username:'',
-  password:'',
+  username: '',
+  password: '',
 })
+
+let checked = ref(false)
 </script>
 
 <template>
@@ -14,23 +16,30 @@ let loginForm = ref({
     <el-row>
       <el-col :span="6"></el-col>
       <el-col :span="12">
-        <div style="margin-top: 6px">
+        <div style="margin-top: 20px">
           <el-form :model="loginForm" label-width="auto" style="max-width: 600px">
             <el-form-item>
-              <el-input v-model="loginForm.username" class="input"/>
+              <el-input v-model="loginForm.username" class="input" placeholder="UserName"/>
             </el-form-item>
             <el-form-item>
-              <el-input v-model="loginForm.password" class="input"/>
+              <el-input v-model="loginForm.password" class="input" type="password" show-password
+                        placeholder="Password" style="margin-bottom: 10px"/>
             </el-form-item>
           </el-form>
         </div>
-        <div style="text-align: right">
-          <el-button color="rgba(255, 255, 255, 0.2)" round>
-            <div style="color: white">登录</div>
-          </el-button>
-          <el-button color="rgba(255, 255, 255, 0.2)" round @click="useRouter().push('/home')">
-            <div style="color: white">返回</div>
-          </el-button>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+          <el-checkbox v-model="checked" size="large"/>
+            <div style="color: #fff; display: inline-block;margin-left: 4px">记住我</div>
+          </div>
+          <div>
+            <el-button color="rgba(255, 255, 255, 0.2)" round size="large">
+              <div style="color: white">登录</div>
+            </el-button>
+            <el-button color="rgba(255, 255, 255, 0.2)" round @click="useRouter().push('/home')" size="large">
+              <div style="color: white">返回</div>
+            </el-button>
+          </div>
         </div>
       </el-col>
       <el-col :span="2"></el-col>
@@ -66,7 +75,46 @@ let loginForm = ref({
   box-shadow: none;
 }
 
+:deep(.el-input__inner) {
+  color: white;
+  font-size: 24px;
+}
+
 .input {
   margin-bottom: 20px;
+}
+
+input {
+  color: white;
+}
+
+:deep(.el-input__password) {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+:deep(.el-input__password:hover) {
+  color: white;
+}
+
+:deep(.el-input__inner::placeholder) {
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all .5s linear;
+}
+
+:deep(.el-input__wrapper:hover) {
+  .el-input__inner::placeholder {
+    opacity: 1;
+  }
+}
+
+:deep(.el-checkbox__inner) {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border: none;
+}
+
+:deep(.el-checkbox__input.is-checked .el-checkbox__inner){
+  background-color: #00D8F6FF
 }
 </style>

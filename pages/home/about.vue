@@ -31,6 +31,12 @@
                    style="height: 15px;"> TypeScript + <img src="~/assets/img/element-plus.svg" alt=""
                                                             style="height: 15px;"> ElementPlus 熟练使用
             </div>
+            <div style="line-height: 1.6">
+              <el-icon>
+                <ElIconCaretRight/>
+              </el-icon>
+              <img src="~/assets/img/nuxt.svg" alt="" style="height: 15px;"> Nuxt 努力学习中
+            </div>
           </div>
           <div class="title-2">后端</div>
           <div style="margin-left: 2em">

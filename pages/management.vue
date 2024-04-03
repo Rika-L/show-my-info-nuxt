@@ -10,6 +10,14 @@ const test = () => {
 const test1 = () => {
   useRouter().push('/home')
 }
+
+const test2 = () => {
+  useRouter().push('/management/timeLine')
+}
+
+const test3 = () => {
+  useRouter().push('/management')
+}
 </script>
 
 <template>
@@ -17,6 +25,8 @@ const test1 = () => {
     后台管理
     <el-button @click="test">退出登录</el-button>
     <el-button @click="test1">回到首页</el-button>
+    <el-button @click="test3">管理页首页</el-button>
+    <el-button @click="test2">时间线管理</el-button>
   </div>
   <div>
     <nuxt-page/>

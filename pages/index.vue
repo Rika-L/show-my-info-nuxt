@@ -1,6 +1,10 @@
 <script setup lang="ts">
-onBeforeMount(()=>{
-  useRouter().replace('/home')
+// onBeforeMount(()=>{
+//   useRouter().replace('/home')
+// })
+
+definePageMeta({
+  redirect: '/home'
 })
 </script>
 

@@ -1,14 +1,13 @@
-import {db} from "~/server/database";
+import { db } from "~/server/database";
 
-export  const ssql = async (sql:string) => {
+export const ssql = async (sql: string, values?: any[]) => {
     return await new Promise((resolve, reject) => {
-        db.query(sql, (err, result) => {
-            console.log(result);
+        db.query(sql, values, (err, result) => {
             if (err) {
                 reject(err);
                 return;
             }
             resolve(result);
         });
-    })
-}
+    });
+};

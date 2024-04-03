@@ -1,10 +1,58 @@
 <script setup lang="ts">
-let loginForm = ref({
-  username: '',
-  password: '',
+
+//定义登陆的路由中间件
+import {onMounted} from "vue";
+
+definePageMeta({
+  middleware: ["login"]
+  // 或 middleware: 'auth'
 })
 
-let checked = ref(false)
+import type {userLoginRes} from "~/types/user";
+
+let loginForm = ref({
+  username: useCookie("username").value,
+  password: useCookie("password").value,
+})
+
+let checked = ref(useCookie("loginChecked").value === 'check')
+
+let token = useCookie('token')
+
+const login = async () => {
+  const result: userLoginRes = await $fetch('/api/login', {
+    method: 'POST',
+    body: {
+      username: loginForm.value.username,
+      password: loginForm.value.password
+    },
+    headers: {
+      token: token.value as any
+    }
+  })
+  if (result.code === 200) {
+    if(checked.value){
+      useCookie("username").value = loginForm.value.username
+      useCookie("password").value = loginForm.value.password
+      useCookie("loginChecked").value = 'check'
+    }else{
+      useCookie("username").value = null
+      useCookie("password").value = null
+      useCookie("loginChecked").value = null
+    }
+    token.value = result.data.token
+    await useRouter().push('/management')
+    ElNotification({
+      type: 'success',
+      message: '登陆成功'
+    })
+  } else {
+    ElNotification({
+      type: 'error',
+      message: result.error
+    })
+  }
+}
 </script>
 
 <template>
@@ -29,12 +77,12 @@ let checked = ref(false)
         </div>
         <div style="display: flex; justify-content: space-between;">
           <div>
-          <el-checkbox v-model="checked" size="large"/>
+            <el-checkbox v-model="checked" size="large"/>
             <div style="color: #fff; display: inline-block;margin-left: 4px">记住我</div>
           </div>
           <div>
             <el-button color="rgba(255, 255, 255, 0.2)" round size="large">
-              <div style="color: white">登录</div>
+              <div style="color: white" @click="login">登录</div>
             </el-button>
             <el-button color="rgba(255, 255, 255, 0.2)" round @click="useRouter().push('/home')" size="large">
               <div style="color: white">返回</div>
@@ -114,7 +162,7 @@ input {
   border: none;
 }
 
-:deep(.el-checkbox__input.is-checked .el-checkbox__inner){
+:deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
   background-color: #00D8F6FF
 }
 </style>

@@ -35,7 +35,7 @@
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/nuxt.svg" alt="" style="height: 15px;"> Nuxt 努力学习中
+              <img src="~/assets/img/nuxt.svg" alt="" style="height: 15px;"> Nuxt 全栈开发 服务端简单CURD
             </div>
           </div>
           <div class="title-2">后端</div>

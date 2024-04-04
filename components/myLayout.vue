@@ -9,10 +9,10 @@ const $router = useRouter()
   <div style="position: fixed;width: 100%">
     <el-container>
       <el-header class="header">
-        <div><span @click="$router.push('/login')">Rika</span></div>
+        <div><nuxt-link to="/login">Rika</nuxt-link></div>
         <div></div>
-        <div><span @click="$router.push('/home')">首页</span><span @click="$router.push('/home/timeLine')">时间轴</span><span
-            @click="$router.push('/home/about')">关于</span><span><img src="~/assets/img/download.svg"
+        <div><nuxt-link to="/home">首页</nuxt-link><nuxt-link to="/home/timeLine">时间轴</nuxt-link><nuxt-link
+            to="/home/about">关于</nuxt-link><span><img src="~/assets/img/download.svg"
                                                                  style="height: 24px"></span></div>
       </el-header>
       <el-main class="main">
@@ -31,7 +31,7 @@ const $router = useRouter()
   justify-content: space-around;
 
   div {
-    span {
+    a {
       display: inline-block;
       font-size: 24px;
       color: white;
@@ -39,9 +39,10 @@ const $router = useRouter()
       border-radius: 24px;
       font-weight: lighter;
       margin-left: 5px;
+      text-decoration: none;
     }
 
-    span:hover {
+    a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
   }

@@ -78,16 +78,16 @@ const change = async () => {
         message: '操作失败'
       })
     }
-  }else{
+  } else {
     try {
-      const res = await $fetch(`/api/timeLine?id=${editId.value}`,{
-        method:'PATCH',
+      const res = await $fetch(`/api/timeLine?id=${editId.value}`, {
+        method: 'PATCH',
         body: {
           time: timeLimeForm.value.time,
           event: timeLimeForm.value.event
         }
       })
-      if (res.code === 200){
+      if (res.code === 200) {
         timeLimeForm.value.time = ''
         timeLimeForm.value.event = ''
         dialogFormVisible.value = false
@@ -96,13 +96,13 @@ const change = async () => {
           type: 'success',
           message: '操作成功'
         })
-      }else{
+      } else {
         ElNotification({
           type: 'error',
           message: '操作失败'
         })
       }
-    }catch (error) {
+    } catch (error) {
       ElNotification({
         type: 'error',
         message: '操作失败'

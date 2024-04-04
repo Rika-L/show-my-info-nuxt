@@ -17,7 +17,7 @@ let loginForm = ref({
 })
 
 
-let checked = useCookie("loginChecked",{maxAge:86400})
+let checked = useCookie("loginChecked", {maxAge: 86400})
 
 let check = ref(!!checked.value)
 

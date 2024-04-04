@@ -2,9 +2,9 @@
 import {onMounted} from "vue";
 
 const timeLine = ref()
-onMounted(async ()=>{
-  const res = await $fetch('/api/timeLine',{
-    method:'GET',
+onMounted(async () => {
+  const res: any = await $fetch('/api/timeLine', {
+    method: 'GET',
   })
   timeLine.value = res.body
 })
@@ -17,14 +17,25 @@ onMounted(async ()=>{
       <el-col :span="20">
         <my-breadcrumb>时间轴</my-breadcrumb>
         <div class="main">
-          <div class="title">TimeLine</div>
-          <el-timeline style="max-width: 600px">
-            <el-timeline-item v-for="(item,index) in timeLine" :key="index" :timestamp="item.time" placement="top" size="large">
-              <el-card style="--el-card-bg-color:rgba(255,255,255,0.2);border: 0;border-radius: 15px;display: inline-block;">
-                <div style="color: #fff;">{{item.event}}</div>
-              </el-card>
-            </el-timeline-item>
-          </el-timeline>
+          <el-row>
+            <el-col :span="12"><div class="title">TimeLine</div>
+              <el-timeline style="max-width: 100%">
+                <el-timeline-item v-for="(item,index) in timeLine" :key="index" :timestamp="item.time" placement="top"
+                                  size="large">
+                  <el-card
+                      style="--el-card-bg-color:rgba(255,255,255,0.2);border: 0;border-radius: 15px;display: inline-block;">
+                    <div style="color: #fff;">{{ item.event }}</div>
+                  </el-card>
+                </el-timeline-item>
+              </el-timeline></el-col>
+            <el-col :span="12">
+              <div style="margin-top: 150px">
+                <h1 class="main-title">时间轴</h1>
+                <div class="introduce">于此记录一些重要/关键的<span style="color: #42D392;">时间节点</span>。</div>
+                <el-button size="large" color="rgba(255,255,255,0.2)" style="--el-button-text-color:#fff;--el-button-hover-text-color:#fff" round>查看完整时间轴</el-button>
+              </div>
+            </el-col>
+          </el-row>
         </div>
       </el-col>
       <el-col :span="2"></el-col>
@@ -44,7 +55,19 @@ onMounted(async ()=>{
   font-weight: bold;
 }
 
-.main{
+.main {
   animation: .5s animate forwards;
+}
+
+.main-title{
+  font-size: 96px;
+  opacity: .7;
+  font-weight: bold;
+}
+
+.introduce{
+  line-height: 2;
+  font-size: 48px;
+  text-indent: 2em;
 }
 </style>

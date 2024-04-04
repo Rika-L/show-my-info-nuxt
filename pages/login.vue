@@ -1,23 +1,27 @@
 <script setup lang="ts">
 
 //定义登陆的路由中间件
-import {onMounted} from "vue";
+import type {userLoginRes} from "~/types/user";
 
 definePageMeta({
   middleware: ["login"]
   // 或 middleware: 'auth'
 })
 
-import type {userLoginRes} from "~/types/user";
+let username = useCookie("username", {maxAge: 86400})
+let password = useCookie("password", {maxAge: 86400})
 
 let loginForm = ref({
-  username: useCookie("username").value,
-  password: useCookie("password").value,
+  username: username.value,
+  password: password.value,
 })
 
-let checked = ref(useCookie("loginChecked").value === 'check')
 
-let token = useCookie('token')
+let checked = useCookie("loginChecked",{maxAge:86400})
+
+let check = ref(!!checked.value)
+
+let token = useCookie('token', {maxAge: 86400})
 
 const login = async () => {
   const result: userLoginRes = await $fetch('/api/login', {
@@ -31,14 +35,14 @@ const login = async () => {
     }
   })
   if (result.code === 200) {
-    if(checked.value){
-      useCookie("username").value = loginForm.value.username
-      useCookie("password").value = loginForm.value.password
-      useCookie("loginChecked").value = 'check'
-    }else{
-      useCookie("username").value = null
-      useCookie("password").value = null
-      useCookie("loginChecked").value = null
+    if (check.value) {
+      username.value = loginForm.value.username
+      password.value = loginForm.value.password
+      checked.value = 'check'
+    } else {
+      username.value = null
+      password.value = null
+      checked.value = null
     }
     token.value = result.data.token
     await useRouter().push('/management')
@@ -77,7 +81,7 @@ const login = async () => {
         </div>
         <div style="display: flex; justify-content: space-between;">
           <div>
-            <el-checkbox v-model="checked" size="large"/>
+            <el-checkbox v-model="check" size="large"/>
             <div style="color: #fff; display: inline-block;margin-left: 4px">记住我</div>
           </div>
           <div>

@@ -17,16 +17,19 @@
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/html.svg" alt="" style="height: 15px;"> HTML + <img src="~/assets/img/css.svg" alt=""
-                                                                                     style="height: 15px;"> CSS + <img
-                src="~/assets/img/JavaScript.svg" alt="" style="height: 15px;"> JavaScript 熟练使用
+              <img src="~/assets/img/html.svg" alt="" style="height: 15px;"> HTML + <img src="~/assets/img/css.svg"
+                                                                                         alt=""
+                                                                                         style="height: 15px;"> CSS +
+              <img
+                  src="~/assets/img/JavaScript.svg" alt="" style="height: 15px;"> JavaScript 熟练使用
             </div>
             <div style="line-height: 1.6">
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/vue.svg" alt="" style="height: 15px;"> VUE + <img src="~/assets/img/vite.svg" alt=""
-                                                                                   style="height: 15px;"> VITE +
+              <img src="~/assets/img/vue.svg" alt="" style="height: 15px;"> VUE + <img src="~/assets/img/vite.svg"
+                                                                                       alt=""
+                                                                                       style="height: 15px;"> VITE +
               <img src="~/assets/img/typescript.svg" alt=""
                    style="height: 15px;"> TypeScript + <img src="~/assets/img/element-plus.svg" alt=""
                                                             style="height: 15px;"> ElementPlus 熟练使用
@@ -44,9 +47,10 @@
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/Python.svg" alt="" style="height: 15px;"> Python + <img src="~/assets/img/django.svg"
-                                                                                         alt=""
-                                                                                         style="height: 15px;"> Django
+              <img src="~/assets/img/Python.svg" alt="" style="height: 15px;"> Python + <img
+                src="~/assets/img/django.svg"
+                alt=""
+                style="height: 15px;"> Django
               简单增删改查
             </div>
             <div style="line-height: 1.6">

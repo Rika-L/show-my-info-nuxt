@@ -9,11 +9,19 @@ const $router = useRouter()
   <div style="position: fixed;width: 100%">
     <el-container>
       <el-header class="header">
-        <div><nuxt-link to="/login">Rika</nuxt-link></div>
+        <div>
+          <nuxt-link to="/login">Rika</nuxt-link>
+        </div>
         <div></div>
-        <div><nuxt-link to="/home">首页</nuxt-link><nuxt-link to="/home/timeLine">时间轴</nuxt-link><nuxt-link
-            to="/home/about">关于</nuxt-link><span><img src="~/assets/img/download.svg"
-                                                                 style="height: 24px"></span></div>
+        <div>
+          <nuxt-link to="/home">首页</nuxt-link>
+          <nuxt-link to="/home/blog">博客</nuxt-link>
+          <nuxt-link to="/home/timeLine">时间轴</nuxt-link>
+          <nuxt-link
+              to="/home/about">关于
+          </nuxt-link>
+          <span><img src="~/assets/img/download.svg"
+                     style="height: 24px"></span></div>
       </el-header>
       <el-main class="main">
         <nuxt-page/>

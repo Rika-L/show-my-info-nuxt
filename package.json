@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "highlight.js": "^11.9.0",
+    "marked": "^12.0.1",
     "mysql2": "^3.9.3",
     "nuxt": "^3.11.1",
     "sass": "^1.72.0",

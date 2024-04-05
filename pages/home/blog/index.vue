@@ -3,7 +3,7 @@ import {onMounted} from "vue";
 
 const allBlog = ref()
 onMounted(async () => {
-  const res: any = await $fetch('/api/allBlog', {
+  const res: any = await $fetch('/api/blog', {
     method: 'GET',
   })
   allBlog.value = res.body
@@ -24,7 +24,6 @@ onMounted(async () => {
                     class="card"
                     v-for="item in allBlog"
                     :key="item.id"
-                    @click="useRouter().push(`/home/blog/show?id=${item.id}`)"
                     style="--el-card-bg-color:rgba(255,255,255,0.2);">
                   <div style="font-weight: bold;font-size: 24px;line-height: 1.5">{{ item.title }}</div>
                   <div style="text-indent: 2em;opacity: .8;line-height: 2">{{ item.introduce }}</div>
@@ -39,7 +38,7 @@ onMounted(async () => {
       <el-col :span="12">
         <div style="margin-top: 150px">
           <h1 class="main-title">博客</h1>
-          <div class="introduce">通常是一些<span style="color: #42D392;">学习过程</span>的记录</div>
+          <div class="introduce">通常是一些<span style="color: #42D392;">学习过程</span>的记录,也可能是喜欢的<span style="color: #42d392;">歌词</span>。</div>
         </div>
       </el-col>
     </el-row>
@@ -85,5 +84,6 @@ onMounted(async () => {
 
 .card:hover {
   transform: translate(0%, -5%);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 </style>

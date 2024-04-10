@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import {useRouter} from "vue-router";
-
-const $router = useRouter()
 </script>
 
 
@@ -9,19 +6,51 @@ const $router = useRouter()
   <div style="position: fixed;width: 100%">
     <el-container>
       <el-header class="header">
-        <div>
-          <nuxt-link to="/login">Rika</nuxt-link>
-        </div>
-        <div></div>
-        <div>
-          <nuxt-link to="/home">首页</nuxt-link>
-          <nuxt-link to="/home/blog">博客</nuxt-link>
-          <nuxt-link to="/home/timeLine">时间轴</nuxt-link>
-          <nuxt-link
-              to="/home/about">关于
-          </nuxt-link>
-          <span><img src="~/assets/img/download.svg"
-                     style="height: 24px"></span></div>
+        <el-row style="align-items: center;height: 100%">
+          <el-col :xs="2" :sm="2"
+          >
+            <div style="background: #0AF7E5"
+            ></div>
+          </el-col>
+          <el-col :xs="12" :sm="12"
+          >
+            <nuxt-link to="/login">Rika</nuxt-link>
+          </el-col>
+          <el-col :xs="0" :sm="8" style="text-align: right"
+          >
+            <div>
+              <nuxt-link to="/home">首页</nuxt-link>
+              <nuxt-link to="/home/blog">博客</nuxt-link>
+              <nuxt-link to="/home/timeLine">时间轴</nuxt-link>
+              <nuxt-link
+                  to="/home/about">关于
+              </nuxt-link>
+            </div>
+          </el-col>
+          <el-col :xs="8" :sm="0" style="text-align: right"
+          >
+            <el-dropdown trigger="click" size="large">
+    <span>
+      <el-icon size="32px">
+        <ElIconArrowDownBold/>
+      </el-icon>
+    </span>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item @click="useRouter().push('/home')">首页</el-dropdown-item>
+                  <el-dropdown-item @click="useRouter().push('/home/blog')">博客</el-dropdown-item>
+                  <el-dropdown-item @click="useRouter().push('/home/timeLine')">时间轴</el-dropdown-item>
+                  <el-dropdown-item @click="useRouter().push('/home/about')">关于</el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
+          </el-col>
+          <el-col :xs="2" :sm="2"
+          >
+            <div style="color: #0AF7E5"
+            />
+          </el-col>
+        </el-row>
       </el-header>
       <el-main class="main">
         <nuxt-page/>
@@ -34,11 +63,10 @@ const $router = useRouter()
 .header {
   height: 64px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 
   div {
+    white-space: nowrap;
+
     a {
       display: inline-block;
       font-size: 24px;
@@ -56,5 +84,13 @@ const $router = useRouter()
   }
 }
 
+:deep(.el-dropdown-menu__item:not(.is-disabled):focus) {
+  color: #8467AA;
+  background-color: rgba(131, 106, 172, 0.2);
+  font-size: 20px;
+}
 
+:deep(.el-dropdown-menu__item:not(.is-disabled)) {
+  font-size: 20px;
+}
 </style>

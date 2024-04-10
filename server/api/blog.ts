@@ -3,7 +3,7 @@ import {ssql} from "~/server/sql";
 
 export default defineEventHandler(async (event) => {
     if (event.method === 'GET') {
-        const sql = "SELECT id, title, DATE_FORMAT(time, '%Y-%m-%d %H:%i:%s') AS formatted_time, introduce FROM blog;\n";
+        const sql = "SELECT id, title, DATE_FORMAT(time, '%Y-%m-%d %H:%i:%s') AS formatted_time, introduce FROM SHOW_blog;\n";
         try {
             // 执行 SQL 查询
             const result = await ssql(sql)
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     }
     if (event.method === 'POST') {
         const body = await readBody(event)
-        const sql = 'INSERT INTO blog (title, time, introduce) VALUES (?, ?, ?)';
+        const sql = 'INSERT INTO SHOW_blog (title, time, introduce) VALUES (?, ?, ?)';
         try {
             await ssql(sql, [body.title, body.time, body.introduce])
             return {
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
         const query = getQuery(event)
         const id = query.id
         const body = await readBody(event)
-        const sql = 'UPDATE blog SET title = ?, time = ?, introduce = ? WHERE id = ?';
+        const sql = 'UPDATE SHOW_blog SET title = ?, time = ?, introduce = ? WHERE id = ?';
         try {
             await ssql(sql, [body.title, body.time, body.introduce, id])
             return {
@@ -58,7 +58,7 @@ export default defineEventHandler(async (event) => {
     if (event.method === 'DELETE') {
         const query = getQuery(event)
         const id = query.id
-        const sql = 'DELETE FROM blog WHERE id = ?'
+        const sql = 'DELETE FROM SHOW_blog WHERE id = ?'
         try {
             await ssql(sql, [id]);
             return {

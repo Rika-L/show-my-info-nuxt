@@ -2,7 +2,7 @@
 import {ssql} from "~/server/sql";
 
 export default defineEventHandler(async (event) => {
-    const sql = "SELECT id, DATE_FORMAT(time, '%Y-%m-%d') AS time, event FROM timeline ORDER BY time ASC";
+    const sql = "SELECT id, DATE_FORMAT(time, '%Y-%m-%d') AS time, event FROM SHOW_timeline ORDER BY time ASC";
     try {
         // 执行 SQL 查询
         const result = await ssql(sql)

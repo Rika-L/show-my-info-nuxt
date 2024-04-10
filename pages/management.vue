@@ -1,5 +1,10 @@
 <script setup lang="ts">
 
+definePageMeta({
+  middleware: ["management"]
+  // 或 middleware: 'auth'
+})
+
 const token = useCookie("token")
 const test = () => {
   token.value = null

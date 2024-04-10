@@ -4,7 +4,7 @@ import {ssql} from "~/server/sql";
 export default defineEventHandler(async (event) => {
     if (event.method === 'POST') {
         const body = await readBody(event)
-        const sql = 'INSERT INTO timeline (time, event) VALUES (?, ?)';
+        const sql = 'INSERT INTO SHOW_timeline (time, event) VALUES (?, ?)';
         try {
             await ssql(sql, [body.time, body.event])
             return {
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     if (event.method === 'DELETE') {
         const query = getQuery(event)
         const id = query.id
-        const sql = 'DELETE FROM timeline WHERE id = ?'
+        const sql = 'DELETE FROM SHOW_timeline WHERE id = ?'
         try {
             await ssql(sql, [id]);
             return {
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
         const query = getQuery(event)
         const id = query.id
         const body = await readBody(event)
-        const sql = 'UPDATE timeline SET time = ?, event = ? WHERE id = ?';
+        const sql = 'UPDATE SHOW_timeline SET time = ?, event = ? WHERE id = ?';
         try {
             await ssql(sql, [body.time, body.event, id])
             return {
@@ -57,7 +57,7 @@ export default defineEventHandler(async (event) => {
     if (event.method === 'GET') {
         const sql = "SELECT * FROM (\n" +
             "    SELECT id, DATE_FORMAT(time, '%Y-%m-%d') AS time, event \n" +
-            "    FROM timeline \n" +
+            "    FROM SHOW_timeline \n" +
             "    ORDER BY time DESC -- 按时间倒序排序，以获取最新的记录\n" +
             "    LIMIT 5 -- 限制结果集的大小为最新的五个记录\n" +
             ") AS recent_records\n" +

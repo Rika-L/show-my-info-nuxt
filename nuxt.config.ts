@@ -5,5 +5,10 @@ export default defineNuxtConfig({
     '@element-plus/nuxt'
   ],
   elementPlus: { /** Options */ },
-  css: ['~/assets/css/index.scss']
+  css: ['~/assets/css/index.scss'],
+  app: {
+    head: {
+      title:'Rika'
+    }
+  }
 })

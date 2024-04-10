@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
         const password = body.password;
 
         // 使用参数化查询，防止 SQL 注入攻击
-        const sql = 'SELECT * FROM user WHERE username = ?;';
+        const sql = 'SELECT * FROM SHOW_user WHERE username = ?;';
         const result: any = await ssql(sql, [username]);
 
         // 检查是否有匹配的用户

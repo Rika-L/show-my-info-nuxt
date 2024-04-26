@@ -1,8 +1,9 @@
 import mysql from 'mysql2'
 
 export const db = mysql.createPool({
-    host: '47.115.210.248',
+    host: '127.0.0.1',
     user: 'gpt1',
     password: 'zhang12345',
-    database: 'gpt1'
+    database: 'gpt1',
+    port:'3306'
 })

@@ -51,13 +51,19 @@
                 src="~/assets/img/django.svg"
                 alt=""
                 style="height: 15px;"> Django
-              简单增删改查
+              简单CURD
             </div>
             <div style="line-height: 1.6">
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/Node.js.svg" alt="" style="height: 15px;"> Node.js 学习中
+              <img src="~/assets/img/Node.js.svg" alt="" style="height: 15px;"> Node.js Express CURD
+            </div>
+            <div style="line-height: 1.6">
+              <el-icon>
+                <ElIconCaretRight/>
+              </el-icon>
+              <img src="~/assets/img/golang%20(1).svg" alt="" style="height: 15px;"> Golang 学习中
             </div>
           </div>
           <div class="title">开发设备</div>

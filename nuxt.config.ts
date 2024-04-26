@@ -3,10 +3,11 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     modules: [
         '@element-plus/nuxt',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        '@pinia/nuxt',
     ],
     elementPlus: { /** Options */},
-    css: ['~/assets/css/index.scss'],
+    css: ['element-plus/theme-chalk/dark/css-vars.css','~/assets/css/index.scss'],
     app: {
         head: {
             title: 'Rika'

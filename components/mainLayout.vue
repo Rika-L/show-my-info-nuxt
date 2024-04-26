@@ -188,7 +188,9 @@ export default {
 </script>
 <template>
   <canvas ref="canvas"></canvas>
-  <div style="height: 100vh;background: linear-gradient(60deg, #2E1953 0,#583F7D 25%,#8467AA 50%,#B293D9 75%,#E1C1FF 100%);">
+  <div
+      style="height: 100vh;transition: all 1s linear"
+      :style="!useDarkStore().dark?'background: linear-gradient(60deg, #2E1953 0,#583F7D 25%,#8467AA 50%,#B293D9 75%,#E1C1FF 100%);':'background: linear-gradient(60deg, #1A0D2A 0%, #281F3B 25%, #382F4C 50%, #443359 75%, #1B1B2F 100%);'">
     <my-layout></my-layout>
   </div>
 </template>

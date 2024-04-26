@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+const darkStore = useDarkStore()
+const changeDark = () => {
+  //获取HTML根节点
+  darkStore.dark = !darkStore.dark
+  let html = document.documentElement
+  darkStore.dark ? (html.className = 'dark') : (html.className = '')
+}
 </script>
 
 
@@ -16,19 +23,29 @@
           >
             <nuxt-link to="/login">Rika</nuxt-link>
           </el-col>
-          <el-col :xs="0" :sm="8" style="text-align: right"
-          >
-            <div>
+          <el-col :xs="0" :sm="8">
+            <div style="display: flex;justify-content: right; /* 水平居中 */
+  align-items: center; /* 垂直居中 */">
               <nuxt-link to="/home">首页</nuxt-link>
               <nuxt-link to="/home/blog">博客</nuxt-link>
               <nuxt-link to="/home/timeLine">时间轴</nuxt-link>
               <nuxt-link
                   to="/home/about">关于
               </nuxt-link>
+              <el-icon @click="changeDark" size="24" class="inline-block ml-[10px]" style="position: relative">
+                <transition name="el-fade-in-linear">
+                  <ElIconSunny v-show="!darkStore.dark" style="position: absolute"/>
+                </transition>
+                <transition name="el-fade-in-linear">
+                  <ElIconMoon v-show="darkStore.dark" style="position: absolute"/>
+                </transition>
+              </el-icon>
             </div>
           </el-col>
-          <el-col :xs="8" :sm="0" style="text-align: right"
+          <el-col :xs="8" :sm="0"
           >
+            <div style="display: flex;justify-content: right; /* 水平居中 */
+  align-items: center; /* 垂直居中 */">
             <el-dropdown trigger="click" size="large">
     <span>
       <el-icon size="32px">
@@ -44,6 +61,15 @@
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
+              <el-icon @click="changeDark" size="24" class="inline-block ml-[10px]" style="position: relative">
+                <transition name="el-fade-in-linear">
+                  <ElIconSunny v-show="!darkStore.dark" style="position: absolute"/>
+                </transition>
+                <transition name="el-fade-in-linear">
+                  <ElIconMoon v-show="darkStore.dark" style="position: absolute"/>
+                </transition>
+              </el-icon>
+            </div>
           </el-col>
           <el-col :xs="2" :sm="2"
           >

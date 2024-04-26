@@ -6,6 +6,7 @@
     <el-row>
       <el-col :span="2"></el-col>
       <el-col :span="20">
+        <div class="font-black">hahaha</div>
         <my-breadcrumb>关于</my-breadcrumb>
         <div class="main">
           <div class="title" style="margin-top: 0">关于我</div>
@@ -17,9 +18,10 @@
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/html.svg" alt="" style="height: 15px;"> HTML + <img src="~/assets/img/css.svg"
-                                                                                         alt=""
-                                                                                         style="height: 15px;"> CSS +
+              <img src="~/assets/img/html.svg" alt="" style="height: 15px;">
+              HTML + <img src="~/assets/img/css.svg"
+                          alt=""
+                          style="height: 15px;"> CSS +
               <img
                   src="~/assets/img/JavaScript.svg" alt="" style="height: 15px;"> JavaScript 熟练使用
             </div>

@@ -201,7 +201,7 @@ canvas {
 }
 
 :deep(div){
-  font-size: 20px;
+  //font-size: 20px;
   color: #fff;
 }
 </style>

@@ -14,7 +14,7 @@ onMounted(async () => {
 <template>
   <div class="main">
     <el-row>
-      <el-col :span="12">
+      <el-col :xs="0" :sm="12">
         <div class="title">TimeLine</div>
         <el-timeline style="max-width: 100%">
           <el-timeline-item v-for="(item,index) in timeLine" :key="index" :timestamp="item.time" placement="top"
@@ -26,7 +26,7 @@ onMounted(async () => {
           </el-timeline-item>
         </el-timeline>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <div style="margin-top: 150px">
           <h1 class="main-title">时间轴</h1>
           <div class="introduce">于此记录一些重要/关键的<span style="color: #42D392;">时间节点</span>。</div>
@@ -35,6 +35,18 @@ onMounted(async () => {
                      @click="useRouter().push('/home/timeLine/allTimeLine')">查看完整时间轴
           </el-button>
         </div>
+      </el-col>
+      <el-col :xs="24" :sm="0">
+        <div class="title">TimeLine</div>
+        <el-timeline style="max-width: 100%">
+          <el-timeline-item v-for="(item,index) in timeLine" :key="index" :timestamp="item.time" placement="top"
+                            size="large">
+            <el-card
+                style="--el-card-bg-color:rgba(255,255,255,0.2);border: 0;border-radius: 15px;display: inline-block;">
+              <div style="color: #fff;">{{ item.event }}</div>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
       </el-col>
     </el-row>
   </div>

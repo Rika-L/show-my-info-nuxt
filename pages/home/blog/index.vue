@@ -14,7 +14,7 @@ onMounted(async () => {
 <template>
   <div class="main">
     <el-row>
-      <el-col :span="12">
+      <el-col :xs="0" :sm="12">
         <div class="title">Blog</div>
         <el-row>
           <el-col :span="20">
@@ -35,12 +35,27 @@ onMounted(async () => {
           <el-col :span="4"></el-col>
         </el-row>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <div style="margin-top: 150px">
           <h1 class="main-title">博客</h1>
           <div class="introduce">通常是一些<span style="color: #42D392;">学习过程</span>的记录,也可能是喜欢的<span style="color: #42d392;">歌词</span>。</div>
         </div>
       </el-col>
+      <el-col :xs="24" :sm="0">
+        <div class="title">Blog</div>
+              <div>
+                <el-card
+                    class="card"
+                    v-for="item in allBlog"
+                    :key="item.id"
+                    style="--el-card-bg-color:rgba(255,255,255,0.2);">
+                  <div style="font-weight: bold;font-size: 24px;line-height: 1.5">{{ item.title }}</div>
+                  <div style="text-indent: 2em;opacity: .8;line-height: 2">{{ item.introduce }}</div>
+                  <div style="opacity: .6;font-weight: lighter;font-size: 12px">{{ item.formatted_time }}</div>
+                </el-card>
+              </div>
+      </el-col>
+
     </el-row>
   </div>
 </template>

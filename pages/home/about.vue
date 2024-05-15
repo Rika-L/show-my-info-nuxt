@@ -38,30 +38,100 @@
               <el-icon>
                 <ElIconCaretRight/>
               </el-icon>
-              <img src="~/assets/img/vue.svg" alt="" style="height: 15px;">
-              <span> VUE + </span>
-              <img src="~/assets/img/vite.svg" alt="" style="height: 15px;">
-              <span> VITE + </span>
-              <img src="~/assets/img/typescript.svg" alt="" style="height: 15px;">
-              <span> TypeScript + </span>
-              <img src="~/assets/img/element-plus.svg" alt="" style="height: 15px;">
-              <span> ElementPlus 熟练使用</span>
-            </div>
-            <div>
-              <el-icon>
-                <ElIconCaretRight/>
-              </el-icon>
-              <img src="~/assets/img/nuxt.svg" alt="" style="height: 15px;">
-              <span> Nuxt 全栈开发</span>
-            </div>
-            <div>
-              <el-icon>
-                <ElIconCaretRight/>
-              </el-icon>
               <img src="~/assets/img/tailwindcss.svg" alt="" style="height: 15px;">
-              <span>Tailwind CSS + </span>
+              <span> Tailwind CSS + </span>
               <img src="~/assets/img/Sass.svg" alt="" style="height: 15px;">
-              <span>SASS</span>
+              <span> SASS </span>
+            </div>
+            <div>
+              <el-icon>
+                <ElIconCaretRight/>
+              </el-icon>
+              <img src="~/assets/img/axios.svg" alt="" style="height: 15px;">
+              <span> axios </span>
+            </div>
+            <div>
+              <el-icon>
+                <ElIconCaretBottom/>
+              </el-icon>
+              <img src="~/assets/img/eslint.svg" alt="" style="height: 15px;">
+              <span> 代码规范 </span>
+              <div class="ml-[2em]">
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/eslint.svg" alt="" style="height: 15px;">
+                  <span> Eslint </span>
+                </div>
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/prettier.png" alt="" style="height: 15px;">
+                  <span> Prettier </span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <el-icon>
+                <ElIconCaretBottom/>
+              </el-icon>
+              <img src="~/assets/img/vue.svg" alt="" style="height: 15px;">
+              <span> Vue系 [主] </span>
+              <div class="ml-[2em]">
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/vue.svg" alt="" style="height: 15px;">
+                  <span> Vue + </span>
+                  <img src="~/assets/img/vite.svg" alt="" style="height: 15px;">
+                  <span> VITE + </span>
+                  <img src="~/assets/img/Pinia.svg" alt="" style="height: 15px;">
+                  <span> Pinia + </span>
+                  <img src="~/assets/img/typescript.svg" alt="" style="height: 15px;">
+                  <span> TypeScript + </span>
+                  <img src="~/assets/img/element-plus.svg" alt="" style="height: 15px;">
+                  <span> ElementPlus 熟练使用</span>
+                </div>
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/nuxt.svg" alt="" style="height: 15px;">
+                  <span> Nuxt 全栈开发</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <el-icon>
+                <ElIconCaretBottom/>
+              </el-icon>
+              <img src="~/assets/img/react.svg" alt="" style="height: 15px;">
+              <span> React系 </span>
+              <div class="ml-[2em]">
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/react.svg" alt="" style="height: 15px;">
+                  <span> React + </span>
+                  <img src="~/assets/img/JavaScript.svg" alt="" style="height: 15px;">
+                  <span> JavaScript + </span>
+                  <img src="~/assets/img/redux-store.svg" alt="" style="height: 15px;">
+                  <span> Redux + </span>
+                  <img src="~/assets/img/antd.svg" alt="" style="height: 15px;">
+                  <span> Ant Design </span>
+                </div>
+                <div>
+                  <el-icon>
+                    <ElIconCaretRight/>
+                  </el-icon>
+                  <img src="~/assets/img/Ant%20Design%20Mobile.svg" alt="" style="height: 15px;">
+                  <span> Ant Design Mobile </span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="title-2">后端</div>
@@ -89,7 +159,8 @@
                 <ElIconCaretRight/>
               </el-icon>
               <img src="~/assets/img/golang%20(1).svg" alt="" style="height: 15px;">
-              <span> Golang 有兴趣，可能会学</span>
+              <span class="line-through"> Golang </span>
+              <span>有兴趣，可能会学</span>
             </div>
           </div>
           <div class="title-2">其他</div>
@@ -100,6 +171,24 @@
               </el-icon>
               <img src="~/assets/img/mysql.svg" alt="" style="height: 15px;">
               <span> MySQL</span>
+            </div>
+          </div>
+          <div style="margin-left: 2em" class="text-xl">
+            <div>
+              <el-icon>
+                <ElIconCaretRight/>
+              </el-icon>
+              <img src="~/assets/img/MongoDB.svg" alt="" style="height: 15px;">
+              <span> MongoDB </span>
+            </div>
+          </div>
+          <div style="margin-left: 2em" class="text-xl">
+            <div>
+              <el-icon>
+                <ElIconCaretRight/>
+              </el-icon>
+              <img src="~/assets/img/git.svg" alt="" style="height: 15px;">
+              <span> Git </span>
             </div>
           </div>
           <div class="title">开发设备</div>

@@ -4,6 +4,6 @@ import {defineStore} from 'pinia'
 // (比如 `useUserStore`，`useCartStore`，`useProductStore`)
 // 第一个参数是你的应用中 Store 的唯一 ID。
 export const useDarkStore = defineStore('dark', () => {
-    let dark = useCookie("dark", {maxAge: 86400})
+    let dark = false
     return {dark}
 })

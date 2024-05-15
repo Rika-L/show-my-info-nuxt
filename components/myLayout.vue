@@ -1,14 +1,45 @@
 <script lang="ts" setup>
 const darkStore = useDarkStore()
-const changeDark = () => {
+const changeDark = (e) => {
   //获取HTML根节点
   darkStore.dark = !darkStore.dark
-  let html = document.documentElement
-  darkStore.dark ? (html.className = 'dark') : (html.className = '')
+  const transition = document.startViewTransition(() => {
+    let html = document.documentElement
+    darkStore.dark ? (html.className = 'dark') : (html.className = '')
+  })
+
+  // 在 transition.ready 的 Promise 完成后，执行自定义动画
+  transition.ready.then(() => {
+    // 由于我们要从鼠标点击的位置开始做动画，所以我们需要先获取到鼠标的位置
+    const {clientX, clientY} = e
+
+    // 计算半径，以鼠标点击的位置为圆心，到四个角的距离中最大的那个作为半径
+    const radius = Math.hypot(
+        Math.max(clientX, innerWidth - clientX),
+        Math.max(clientY, innerHeight - clientY)
+    )
+    const clipPath = [
+      `circle(0% at ${clientX}px ${clientY}px)`,
+      `circle(${radius}px at ${clientX}px ${clientY}px)`
+    ]
+    const isDark = document.documentElement.classList.contains('dark')
+    // 自定义动画
+    document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0% at ${clientX}px ${clientY}px)`,
+            `circle(${radius}px at ${clientX}px ${clientY}px)`
+          ]
+        },
+        {
+          duration: 500,
+          pseudoElement: '::view-transition-new(root)'
+        }
+    )
+  })
+
 }
 </script>
-
-
 <template>
   <div style="position: fixed;width: 100%">
     <el-container>
@@ -46,21 +77,21 @@ const changeDark = () => {
           >
             <div style="display: flex;justify-content: right; /* 水平居中 */
   align-items: center; /* 垂直居中 */">
-            <el-dropdown trigger="click" size="large">
+              <el-dropdown trigger="click" size="large">
     <span>
       <el-icon size="32px">
         <ElIconArrowDownBold/>
       </el-icon>
     </span>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item @click="useRouter().push('/home')">首页</el-dropdown-item>
-                  <el-dropdown-item @click="useRouter().push('/home/blog')">博客</el-dropdown-item>
-                  <el-dropdown-item @click="useRouter().push('/home/timeLine')">时间轴</el-dropdown-item>
-                  <el-dropdown-item @click="useRouter().push('/home/about')">关于</el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
+                <template #dropdown>
+                  <el-dropdown-menu>
+                    <el-dropdown-item @click="useRouter().push('/home')">首页</el-dropdown-item>
+                    <el-dropdown-item @click="useRouter().push('/home/blog')">博客</el-dropdown-item>
+                    <el-dropdown-item @click="useRouter().push('/home/timeLine')">时间轴</el-dropdown-item>
+                    <el-dropdown-item @click="useRouter().push('/home/about')">关于</el-dropdown-item>
+                  </el-dropdown-menu>
+                </template>
+              </el-dropdown>
               <el-icon @click="changeDark" size="24" class="inline-block ml-[10px]" style="position: relative">
                 <transition name="el-fade-in-linear">
                   <ElIconSunny v-show="!darkStore.dark" style="position: absolute"/>

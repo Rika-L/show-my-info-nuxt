@@ -12,5 +12,12 @@ export default defineNuxtConfig({
         head: {
             title: 'Rika'
         }
-    }
+    },
+    plugins: [
+        {
+            src: '~/plugins/wang-editor',
+            mode: 'client',
+        }
+    ],
+
 })

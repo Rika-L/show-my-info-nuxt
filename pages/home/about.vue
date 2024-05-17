@@ -87,7 +87,7 @@
                   <img src="~/assets/img/vue.svg" alt="" style="height: 15px;">
                   <span> Vue + </span>
                   <img src="~/assets/img/vite.svg" alt="" style="height: 15px;">
-                  <span> VITE + </span>
+                  <span> Vite + </span>
                   <img src="~/assets/img/Pinia.svg" alt="" style="height: 15px;">
                   <span> Pinia + </span>
                   <img src="~/assets/img/typescript.svg" alt="" style="height: 15px;">
@@ -117,6 +117,8 @@
                   </el-icon>
                   <img src="~/assets/img/react.svg" alt="" style="height: 15px;">
                   <span> React + </span>
+                  <img src="~/assets/img/vite.svg" alt="" style="height: 15px;">
+                  <span> Vite + </span>
                   <img src="~/assets/img/JavaScript.svg" alt="" style="height: 15px;">
                   <span> JavaScript + </span>
                   <img src="~/assets/img/redux-store.svg" alt="" style="height: 15px;">

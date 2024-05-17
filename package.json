@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "@wangeditor/core": "^1.1.19",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "echarts": "^5.5.0",
     "highlight.js": "^11.9.0",
     "marked": "^12.0.1",
